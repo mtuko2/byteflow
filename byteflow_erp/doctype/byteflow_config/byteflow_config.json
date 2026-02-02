@@ -1,0 +1,52 @@
+{
+ "actions": [],
+ "creation": "2024-05-23 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "site_config_section",
+  "site_name",
+  "maintenance_mode"
+ ],
+ "fields": [
+  {
+   "fieldname": "site_config_section",
+   "fieldtype": "Section Break",
+   "label": "Site Configuration"
+  },
+  {
+   "fieldname": "site_name",
+   "fieldtype": "Data",
+   "label": "Site Name",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "maintenance_mode",
+   "fieldtype": "Check",
+   "label": "Maintenance Mode"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-05-23 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Byteflow Erp",
+ "name": "Byteflow Config",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

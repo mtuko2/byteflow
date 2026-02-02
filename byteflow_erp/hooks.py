@@ -1,9 +1,10 @@
 app_name = "byteflow_erp"
 app_title = "Byteflow ERP"
 app_publisher = "Byteflow"
-app_description = "An open-source, tailor-made ERP for my specific needs."
+app_description = "Custom ERP solution for Kenya."
 app_email = "byteflow@example.com"
 app_license = "mit"
+app_logo_url = "/assets/byteflow_erp/images/logo.png"
 
 # Apps
 # ------------------
@@ -14,7 +15,7 @@ app_license = "mit"
 # add_to_apps_screen = [
 # 	{
 # 		"name": "byteflow_erp",
-# 		"logo": "/assets/byteflow_erp/logo.png",
+# 		"logo": "/assets/byteflow_erp/images/logo.png",
 # 		"title": "Byteflow ERP",
 # 		"route": "/byteflow_erp",
 # 		"has_permission": "byteflow_erp.api.permission.has_app_permission"
@@ -43,7 +44,11 @@ app_license = "mit"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+# include js in doctype views
+doctype_js = {
+    "Sales Invoice": "public/js/smart_download.js",
+    "Purchase Order": "public/js/smart_download.js"
+}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -58,6 +63,13 @@ app_license = "mit"
 
 # application home page (will override Website Settings)
 # home_page = "login"
+
+website_context = {
+	"favicon": "/assets/byteflow_erp/images/logo.png",
+	"splash_image": "/assets/byteflow_erp/images/logo.png",
+	"app_name": "Byteflow ERP",
+    "app_logo": "/assets/byteflow_erp/images/logo.png",
+}
 
 # website user home page (by Role)
 # role_home_page = {
@@ -137,13 +149,11 @@ app_license = "mit"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"Payment Entry": {
+		"on_submit": "byteflow_erp.mpesa.on_submit_payment_entry"
+	}
+}
 
 # Scheduled Tasks
 # ---------------
